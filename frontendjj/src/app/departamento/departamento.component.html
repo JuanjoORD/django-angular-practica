@@ -1,0 +1,90 @@
+<br>  
+<div class="row" style="margin-left: 5%; margin-right: 5%;">        
+    <div class="row col l12 z-depth-3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src="https://picsum.photos/id/1003/100/100" alt="" class="circle responsive-img">
+            </div>
+            <div class="col s10">
+              <span class="black-text">                
+                <mat-label>
+                  LISTADO DE <b>DEPARTAMENTOS</b></mat-label>
+                <button
+                  mat-raised-button
+                  style="margin-left: 4%; background-color: white; color: #436f8a;
+                  border: 3px solid #436f8a;"
+                  (click)="openDialog(0)"
+                >
+                  Crear nuevo departamento
+                </button>                   
+                <br>                
+              </span>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+  <div *ngIf="!cargando">
+      <!-- inicio de la tabla -->
+      <mat-form-field>
+        <mat-label>Buscar por nombre</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ej. Suchitepéquez" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSourceTemp" matSort style="background-color: #e7e7de;">
+      
+          <!-- id -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: #00587a; color: white;"> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+      
+          <!-- nombre -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: #00587a; color: white;"> Departamento </th>
+            <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+          </ng-container>   
+          
+          <!-- nombre -->
+          <ng-container matColumnDef="accion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="background-color: #00587a; color: white;"> Opciones </th>
+            <td mat-cell *matCellDef="let row">
+              <div class="example-button-row">
+                <button mat-raised-button class="col s12 m12 l2"
+                style="margin-left: 4%; background-color: white; color: green;
+                  border: 3px solid green;"
+                (click)="openDialog(row.id)"
+                >Actualizar</button> 
+
+                <button mat-raised-button class="col s12 m12 l2"
+                style="margin-left: 4%; background-color: white; color: #436f8a;
+                  border: 3px solid #436f8a;"
+                [routerLink]="['/departamento/', row.id]"
+                >Ver municipios</button>                  
+              </div>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Cuando no encuentra datos -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No hay coincidencias para: "{{input.value}}"</td>
+          </tr>
+        </table>
+            
+        <mat-paginator [length]="dataSourceTemp.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"
+        (page)="pageChange($event)">
+      </mat-paginator>
+      </div>
+  </div>
+
+  <div *ngIf="cargando" class="row col l12 center">
+    <mat-spinner class="row col l12 center"></mat-spinner>
+  </div>
+
+</div>
