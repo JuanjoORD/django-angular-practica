@@ -1,0 +1,76 @@
+<div class="row" *ngIf="!cargando" style="margin-left: 5%; margin-right: 5%;">
+    <div class="row">
+        <div id="gradient"></div>
+        <div id="card">
+        <img src="https://picsum.photos/seed/picsum/200/300"/>
+        <h2><b>Departamento: </b>{{ nombreDepartamento }}</h2>      
+        <a class="btn-floating halfway-fab waves-effect waves-light lightblue" [routerLink]="['/']" style="margin-right: 60px;">
+            <i class="material-icons">keyboard_backspace</i>
+        </a>     
+        <a class="btn-floating halfway-fab waves-effect waves-light lightblue" (click)="openDialog(0)">
+            <i class="material-icons">add</i>
+        </a>     
+        </div>
+    </div>
+
+    <br><br>
+    <div *ngFor="let muni of dataSourceTemp">
+        <!-- <div class="container">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
+                        <h3>Design</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                            <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>           
+        </div> -->
+              
+        <!-- <div class="row"> -->
+            <div class="col s12 m12 l4 left" *ngIf="!(dataSourceTemp.indexOf(muni)%2)"> 
+            <div class="card" style="width: 400px;">
+                <div class="card-image">
+                <img src="https://picsum.photos/seed/picsum200/300" height="300px">          
+                <h2 class="card-title col l12" style="background-color: black; height: 20px; padding-bottom: 40px;"><b>{{ muni.nombre }}</b></h2>
+                <a class="btn-floating halfway-fab waves-effect waves-light lightblue" (click)="openDialog(muni.id)">
+                    <i class="material-icons">create</i>
+                </a>
+                </div>
+                <div class="card-content" style="height: 250px;">
+                    <h2><b>Alcalde:</b> {{ muni.alcalde }}</h2>
+                    <h2><b>Descripción:</b></h2>
+                <p>{{ muni.descripcion }}</p>
+                </div>
+            </div>
+            </div>
+
+            <div class="col s12 m12 l4 offset-l4" *ngIf="(dataSourceTemp.indexOf(muni)%2)">
+                <div class="card" style="width: 400px;">
+                    <div class="card-image">
+                    <img src="https://picsum.photos/seed/picsum200/300" height="300px">          
+                    <h2 class="card-title col l12" style="background-color: black; height: 20px; padding-bottom: 40px;"><b>{{ muni.nombre }}</b></h2>
+                    <a class="btn-floating halfway-fab waves-effect waves-light lightblue" (click)="openDialog(muni.id)">
+                        <i class="material-icons">create</i>
+                    </a>
+                    </div>
+                    <div class="card-content" style="height: 250px;">
+                        <h2><b>Alcalde:</b> {{ muni.alcalde }}</h2>
+                        <h2><b>Descripción:</b></h2>
+                    <p>{{ muni.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+            
+    </div>
+</div>
+
+<div *ngIf="cargando" class="row col l12 center">
+    <mat-spinner class="row col l12 center"></mat-spinner>
+</div>
