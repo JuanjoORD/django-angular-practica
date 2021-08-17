@@ -1,6 +1,3 @@
-[![linux build](https://api.travis-ci.org/iroy2000/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/iroy2000/react-redux-boilerplate)
-[![Dependency Status][david_img]][david_site]
-[![Join the chat at https://gitter.im/iroy2000-react-redux-boilerplate/Lobby](https://badges.gitter.im/iroy2000-react-redux-boilerplate/Lobby.svg)](https://gitter.im/iroy2000-react-redux-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 -**-----------Juan José Ordoñez-------------**
 
@@ -17,8 +14,8 @@ El cual es consumido por una aplicación Angular como frontend.
 
 Paso 1: clonar el repo
 ```
-git clone https://github.com/JuanjoORD/PrograComercialParcialTres.git
-cd PrograComercialParcialTres
+git clone https://github.com/JuanjoORD/django-angular-practica.git
+cd django-angular-practica
 ```
 
 Paso 2: crear un ambiente virtual con Python 3
