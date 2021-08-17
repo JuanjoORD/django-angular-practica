@@ -10,7 +10,9 @@ Antes de inicar ver los pasos para configurar el proyecto inicial.
 
 IMPORTANTE
 ```
-Este proyecto es una práctica del Framework Django como backend (utilizando djangorestframework), el cual es consumido por una aplicación Angular como frontend.
+Este proyecto es una práctica 
+del Framework Django como backend (utilizando djangorestframework)
+El cual es consumido por una aplicación Angular como frontend.
 ```
 
 Paso 1: clonar el repo
